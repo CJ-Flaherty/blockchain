@@ -34,15 +34,14 @@ public class Blockchain {
 
     public boolean verify(){
         Block block = this.firstBlock;
-        boolean bool = true;
         while (block.getNextBlock() != null) {
             if (block.getNextBlock().getHashPrev() != block.getHash()){
-                bool = false;
+                return false;
             }
             block = block.getNextBlock();
 
         }
 
-    return bool;
+    return true;
     }
 }
